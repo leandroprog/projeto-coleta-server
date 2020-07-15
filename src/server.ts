@@ -15,4 +15,4 @@ app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')))
 app.use(errors())
 
 
-app.listen(3333);
+app.listen(process.env.APP_API_URL);
