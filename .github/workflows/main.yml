@@ -41,6 +41,7 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         port: ${{ secrets.SSH_PORT }}
         key: ${{ secrets.SSH_KEY }}
+        debug: true
         source: ".,!node_modules"
         target: "~/app/projeto-coleta-server/"
 
