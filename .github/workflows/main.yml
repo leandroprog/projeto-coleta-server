@@ -43,7 +43,19 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         debug: true
         source: ".,!node_modules"
-        target: "~/app/projeto-coleta-server-teste"
-
+        target: "~/app/projeto-coleta-server"
+    
+     # Executar "yarn,migrations e restart servidor" na Digital Ocean 
+    - name: Install dependencies on Digital Ocean
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: |
+          cd ~/app/projeto-coleta-server
+          yarn
+          pm2 restart coleta-api
     
     
