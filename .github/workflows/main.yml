@@ -42,8 +42,9 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         key: ${{ secrets.SSH_KEY }}
         debug: true
+        rm: true
         source: ".,!node_modules"
-        target: "~/app/projeto-coleta-server/"
+        target: "~/app/projeto-coleta-server"
 
      # Executar "yarn,migrations e restart servidor" na Digital Ocean 
     - name: Install dependencies on Digital Ocean
